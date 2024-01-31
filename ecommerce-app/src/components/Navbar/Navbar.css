@@ -1,0 +1,10 @@
+a.nav-link {
+  transition: 0.3s;
+  font-weight: bold;
+  &:hover,
+  &:is(:focus),
+  &:active {
+    color: var(--main-color) !important;
+    box-shadow: none !important;
+  }
+}
