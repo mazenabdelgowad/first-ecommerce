@@ -1,0 +1,26 @@
+.hero {
+  background-image: url("../../assets/images/hero.png");
+  background-position: top 25% right 0;
+  background-size: cover;
+  min-height: 91vh;
+
+  & .hero-text {
+    color: var(--main-color);
+  }
+
+  & .shop-link {
+    background-image: url("../../assets/images/button.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5rem;
+    width: 10rem;
+    padding: 0 2rem;
+    color: var(--main-color);
+    text-decoration: none;
+    font-size: 1.3rem !important;
+  }
+}

@@ -6,3 +6,7 @@
   font-family: "Playfair Display", serif !important;
   font-optical-sizing: auto !important;
 }
+
+section {
+  padding: 70px 0;
+}

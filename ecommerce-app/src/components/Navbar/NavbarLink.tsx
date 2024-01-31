@@ -1,27 +1,26 @@
-import { ReactNode, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 type NavbarLinkPropsType = {
 	to: string;
-	pageName: string | ReactNode;
-	className: string;
+	pageName: string;
 };
 
 
-const NavbarLink = ({ to, pageName, className }: NavbarLinkPropsType) => {
+const NavbarLink = ({ to, pageName }: NavbarLinkPropsType) => {
 
 	useEffect(() => {
 		const HomePageLink: Element = document.querySelector("a.home")!;
 		if (window.location.pathname === "/")
-			HomePageLink?.focus();
+			HomePageLink?.classList.add("active");
 		else
 			HomePageLink?.classList.remove("active");
 
 	}, [])
 	return (
 		<li className="nav-item">
-			<Link className={className ? className : ""} to={to}>
+			<NavLink className="nav-link" to={to}>
 				{pageName}
-			</Link>
+			</NavLink>
 		</li>
 	);
 };
