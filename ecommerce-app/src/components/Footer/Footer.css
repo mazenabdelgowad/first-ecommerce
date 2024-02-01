@@ -1,0 +1,17 @@
+footer {
+  & a {
+    color: rgba(0, 0, 0, 0.5);
+    transition: 0.15s;
+    text-transform: capitalize;
+    font-weight: 800;
+    &:hover {
+      color: var(--main-color);
+    }
+  }
+  & p {
+    color: rgba(0, 0, 0, 0.5);
+    transition: 0.15s;
+    text-transform: capitalize;
+    font-weight: 800;
+  }
+}

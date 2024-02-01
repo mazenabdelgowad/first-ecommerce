@@ -1,5 +1,5 @@
 import "./NewsLetter.css";
-
+import "aos/dist/aos.css"
 const NewsLetter = () => {
 	const handleSubmit = (e: { preventDefault: () => void }) => {
 		e.preventDefault();
@@ -16,11 +16,11 @@ const NewsLetter = () => {
 				d-flex justify-content-between align-items-end
 			"
 			>
-				<div className="news-letter-message">
+				<div className="news-letter-message" data-aos="fade-right">
 					<h3>Sign Up For Newsletters</h3>
-					<p>Get E-mail updates about our latest shop and specails offers .</p>
+					<p className="mt-2">Get E-mail updates about our latest shop and specails offers .</p>
 				</div>
-				<form action="" onSubmit={(e) => handleSubmit(e)}>
+				<form action="" onSubmit={(e) => handleSubmit(e)} data-aos="fade-left">
 					<input
 						type="email"
 						name="user-email"
