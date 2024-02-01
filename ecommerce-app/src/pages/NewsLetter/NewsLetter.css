@@ -1,0 +1,21 @@
+.news-letter {
+  color: #fff;
+  min-height: 200px;
+  background-color: #020236;
+
+  & form {
+    & input {
+      padding: 0.5rem;
+      outline: none;
+      border: none;
+      &[type="email"] {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+      &[type="submit"] {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+    }
+  }
+}

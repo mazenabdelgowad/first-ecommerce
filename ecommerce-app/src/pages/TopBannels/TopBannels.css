@@ -1,0 +1,15 @@
+.top-bannels {
+  & .top-bannels-first-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 2rem;
+    min-height: 500px;
+  }
+  & .bottom-bannels {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+}

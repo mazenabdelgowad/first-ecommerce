@@ -7,6 +7,20 @@
   font-optical-sizing: auto !important;
 }
 
-section {
-  padding: 70px 0;
+section:not(.hero) {
+  margin: 70px 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0 !important;
+}
+
+a {
+  text-decoration: none !important;
 }

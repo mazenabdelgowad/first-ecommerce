@@ -1,0 +1,23 @@
+.small-bannels {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 200px;
+  color: #fff;
+  align-items: center;
+  &.seasonal-sale {
+    flex: 1;
+    background-image: url("../../assets/images/banner/b7.jpg");
+  }
+
+  &.new-footware-collection {
+    flex: 1.2;
+    background-image: url("../../assets/images/banner/b4.jpg");
+  }
+
+  &.t-shirts {
+    flex: 1;
+    background-image: url("../../assets/images/banner/b18.jpg");
+    text-align: left !important;
+  }
+}
