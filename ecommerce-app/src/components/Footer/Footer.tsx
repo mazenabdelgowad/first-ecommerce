@@ -5,7 +5,11 @@ import playStore from "../../assets/images/pay/play.jpg";
 import payment from "../../assets/images/pay/pay.png";
 import "./Footer.css"
 import "aos/dist/aos.css"
+
 const Footer = () => {
+
+
+
 	return (
 		<footer className="mb-5">
 			<div className="container">

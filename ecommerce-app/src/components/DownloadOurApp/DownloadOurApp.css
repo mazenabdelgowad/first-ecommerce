@@ -1,0 +1,15 @@
+.download-our-app {
+  & h1 {
+    text-transform: capitalize;
+    & span {
+      color: rgb(103, 7, 103);
+      border-bottom: 2px solid rgb(103, 7, 103);
+    }
+  }
+  & video {
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 500px;
+    border-radius: 30px;
+  }
+}

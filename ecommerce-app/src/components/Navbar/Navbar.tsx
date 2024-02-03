@@ -24,9 +24,9 @@ const Navbar = () => {
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav ms-auto mb-2 mb-lg-0">
 						<NavbarLink to="/" pageName="Home" />
-						<NavbarLink to="/shop" pageName="Shop" />
+						<NavbarLink to="/about" pageName="About" />
 						<NavbarLink to="/contact" pageName="Contact" />
-						<NavbarLink to="/login" pageName="Login" />
+						<NavbarLink to="/signup" pageName="signUp" />
 						<NavbarLink to="/signin" pageName="SignIn" />
 						{false && <NavbarLink to="/signout" pageName="Sign Out" />}
 						{/* Temporary disabled*/}

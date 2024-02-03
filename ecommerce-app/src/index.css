@@ -7,8 +7,11 @@
   font-optical-sizing: auto !important;
 }
 
-section:not(.hero) {
+section:not(.hero, .about-hero) {
   margin: 70px 0;
+}
+#root {
+  overflow: hidden !important;
 }
 
 h1,
@@ -29,4 +32,14 @@ ul {
   list-style: none !important;
   margin: 0 !important;
   padding: 0 !important;
+}
+
+.offscreen {
+  display: none !important;
+}
+.instructions {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  word-wrap: break-word;
 }

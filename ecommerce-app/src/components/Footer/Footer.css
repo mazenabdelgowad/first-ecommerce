@@ -1,4 +1,6 @@
 footer {
+  margin-top: 2rem;
+
   & a {
     color: rgba(0, 0, 0, 0.5);
     transition: 0.15s;

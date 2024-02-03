@@ -18,7 +18,7 @@ const NavbarLink = ({ to, pageName }: NavbarLinkPropsType) => {
 	}, [])
 	return (
 		<li className="nav-item">
-			<NavLink className="nav-link" to={to}>
+			<NavLink className="nav-link text-capitalize" to={to}>
 				{pageName}
 			</NavLink>
 		</li>

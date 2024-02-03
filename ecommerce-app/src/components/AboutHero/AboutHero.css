@@ -1,0 +1,13 @@
+.about-hero,
+.contact-hero {
+  background: url("../../assets/images/about/banner.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

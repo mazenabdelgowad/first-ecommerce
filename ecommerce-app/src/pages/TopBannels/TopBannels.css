@@ -4,6 +4,11 @@
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
     gap: 2rem;
     min-height: 500px;
+    @media (max-width: 767px) {
+      & {
+        grid-template-columns: 100%;
+      }
+    }
   }
   & .bottom-bannels {
     display: flex;
