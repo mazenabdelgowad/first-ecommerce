@@ -1,5 +1,11 @@
 .navbar {
   background-color: #e3e6f3;
+
+  & .navbar-toggler {
+    box-shadow: none !important;
+    outline: none;
+    border: none;
+  }
   & a.nav-link {
     font-weight: bold;
     transition: 0.3s;
@@ -8,5 +14,13 @@
     &.active {
       color: var(--main-color) !important;
     }
+  }
+
+  & button.log-out {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 1.3rem;
   }
 }

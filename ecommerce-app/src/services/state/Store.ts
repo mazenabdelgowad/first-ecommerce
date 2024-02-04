@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-
+import cartCountSliceReducer from '../CartCountSlice'
 export const store = configureStore({
 	reducer: {
-
+		cartCount: cartCountSliceReducer
 	},
 })
 

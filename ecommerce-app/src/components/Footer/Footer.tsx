@@ -11,7 +11,7 @@ const Footer = () => {
 
 
 	return (
-		<footer className="mb-5">
+		<footer className="mb-5 text-sm-center" >
 			<div className="container">
 				<div className="row">
 					<div className="contact col-lg-4" data-aos="fade-right">

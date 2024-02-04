@@ -8,11 +8,12 @@ import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import SignUp from "./pages/SignUp/SignUp";
 import SignIn from "./pages/SignIn/SignIn";
+import SingleProduct from "./components/SingleProduct/SingleProduct";
 const App = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 2500,
+      duration: 2000,
     });
   }, []);
 
@@ -20,19 +21,21 @@ const App = () => {
   const location = useLocation();
 
   // Conditionally render Navbar and Footer based on the current route
-  const showNavbarAndFooter = !location.pathname.includes("/signup") && !location.pathname.includes("/signin");
+  const showNavbarAndFooter = location.pathname.includes("/signup") || location.pathname.includes("/signUp") || location.pathname.includes("/signin"); // true
+
 
   return (
     <>
-      {showNavbarAndFooter && <Navbar />}
+      {!showNavbarAndFooter && <Navbar />}
       <Routes>
         <Route index element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/products/:id" element={<SingleProduct />} />
       </Routes>
-      {showNavbarAndFooter && <Footer />}
+      {!showNavbarAndFooter && <Footer />}
 
     </>
   )

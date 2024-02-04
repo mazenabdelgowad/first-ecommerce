@@ -1,41 +1,40 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import "./SignUp.css";
 import logo from "../../assets/images/logo.png";
 import { NavLink } from "react-router-dom";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { FaInfoCircle, FaTimes } from "react-icons/fa";
 import Label from "../../components/Label/Label";
 import useDebounce from "../../hooks/useDepounce";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const USER_REGEX = /^[A-z][A-z0-9-_" "]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
 
 const SignUp = () => {
-	const userRef = useRef<HTMLInputElement | null>(null);
-
+	// User name
 	const [userName, setUserName] = useState<string>("");
 	const [validUserName, setValidUserName] = useState<boolean>(false);
-	const [, setFocusUserName] = useState<boolean>(false);
 	const userDebounce = useDebounce<string>(userName);
+	const userRef = useRef<HTMLInputElement | null>(null);
+	// User Email
+	const [email, setEmail] = useState<string>("");
+	const [validEmail, setValidEmail] = useState<boolean>(false);
+	const emailDebounce = useDebounce<string>(email);
+	const emailRef = useRef<HTMLInputElement | null>(null);
 
+	// User Password
 	const [password, setPassword] = useState<string>("");
 	const [validPassword, setValidPassword] = useState<boolean>(false);
 	const [focusPassword, setFocusPassword] = useState<boolean>(false);
 	const passwordDebounce = useDebounce<string>(password);
-
+	const passRef = useRef<HTMLInputElement | null>(null);
+	// User confirm Password
 	const [confirmPassword, setConfirmPassword] = useState<string>("");
 	const [validConfirmPassword, setValidConfirmPassword] =
 		useState<boolean>(false);
-	const [focusConfirmPassword, setFocusConfirmPassword] =
-		useState<boolean>(false);
+	const [focusConfirmPassword] = useState<boolean>(false);
 	const confirmPasswordDebounce = useDebounce<string>(confirmPassword);
-
-	const [email, setEmail] = useState<string>("");
-	const [validEmail, setValidEmail] = useState<boolean>(true);
-	const [, setFocusEmail] = useState<boolean>(false);
-	const emailDebounce = useDebounce<string>(email);
+	const confirmPassRef = useRef<HTMLInputElement | null>(null);
 
 	const navigate = useNavigate();
 	// console.log(navigator.geolocation.getCurrentPosition(() => {
@@ -66,14 +65,11 @@ const SignUp = () => {
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		if (!userName) {
-			setFocusUserName(true);
-		} else if (!email) {
-			setFocusEmail(true);
-		} else if (!password) {
-			setFocusPassword(true);
-		} else if (!confirmPassword) {
-			setFocusConfirmPassword(true);
+		if (!userName || !email || !password || !confirmPassword) {
+			if (!userName) userRef?.current?.focus();
+			else if (!email) emailRef?.current?.focus();
+			else if (!password) passRef?.current?.focus();
+			else if (!confirmPassword) confirmPassRef?.current?.focus();
 		} else {
 			console.log(`welcome ${userName}`);
 			const newUser = {
@@ -82,12 +78,14 @@ const SignUp = () => {
 				password,
 			};
 			console.log(newUser);
-			navigate("/signin")
+			localStorage.setItem("email", email);
+			localStorage.setItem("password", password);
+			navigate("/signin");
 		}
 	};
 
 	return (
-		<div className="sign-up-page d-flex flex-column justify-content-center align-items-center gap-2">
+		<div className="sign-page d-flex flex-column justify-content-center align-items-center gap-2">
 			<NavLink to="/" className="mt-2">
 				<img src={logo} alt="Logo" />
 			</NavLink>
@@ -104,18 +102,15 @@ const SignUp = () => {
 					<input
 						type="text"
 						name="user"
-						id="username"
 						ref={userRef}
+						id="username"
 						value={userName}
 						autoComplete="off"
 						onChange={(e) => {
 							setUserName(e.target.value);
 						}}
-						required
-						aria-invalid={validUserName ? "false" : "true"}
 						aria-describedby="uidnote"
-						onFocus={() => setFocusUserName(true)}
-						onBlur={() => setFocusUserName(false)}
+						aria-invalid={validUserName ? "false" : "true"}
 					/>
 					<p
 						id="uidnote"
@@ -142,19 +137,19 @@ const SignUp = () => {
 					<input
 						type="text"
 						name="email"
+						ref={emailRef}
 						id="user-email"
 						value={email}
 						autoComplete="on"
 						onChange={(e) => setEmail(e.target.value)}
-						required
-						aria-invalid={validUserName ? "false" : "true"}
 						aria-describedby="emailIdnNote"
-						onFocus={() => setFocusEmail(true)}
-						onBlur={() => setFocusEmail(false)}
+						aria-invalid={validEmail ? "false" : "true"}
 					/>
 					<p
 						id="emailIdnNote"
-						className={emailDebounce && !validEmail ? "instructions" : "offscreen"}
+						className={
+							emailDebounce && !validEmail ? "instructions" : "offscreen"
+						}
 					>
 						<span className="text-danger">
 							<FaTimes />
@@ -171,13 +166,15 @@ const SignUp = () => {
 					<input
 						type="password"
 						name="user-pass"
+						ref={passRef}
 						id="password"
 						value={password}
-						placeholder="Password"
-						onChange={(e) => setPassword(e.target.value)}
-						required
-						aria-invalid={validPassword ? "false" : "true"}
+						onChange={(e) => {
+							setPassword(e.target.value)
+						}}
 						aria-describedby="pwdnote"
+						aria-invalid={validPassword ? "false" : "true"}
+						autoComplete="off"
 						onFocus={() => setFocusPassword(true)}
 						onBlur={() => setFocusPassword(false)}
 					/>
@@ -187,7 +184,7 @@ const SignUp = () => {
 							focusPassword && !validPassword ? "instructions" : "offscreen"
 						}
 					>
-						<span>
+						<span className="me-1">
 							<FaInfoCircle />
 						</span>
 						8 to 24 characters. <br />
@@ -211,22 +208,20 @@ const SignUp = () => {
 					<input
 						type="password"
 						name="user-confirm-pass"
+						ref={confirmPassRef}
 						id="password-confirm"
 						value={confirmPassword}
-						placeholder="Confirm Password"
 						onChange={(e) => setConfirmPassword(e.target.value)}
-						required
-						aria-invalid={validConfirmPassword ? "false" : "true"}
 						aria-describedby="confirmPwdnote"
-						onFocus={() => setFocusConfirmPassword(true)}
-						onBlur={() => setFocusConfirmPassword(false)}
+						ariea-invalid={validConfirmPassword ? "false" : "true"}
+						autoComplete="off"
 					/>
 					<p
 						id="confirmPwdnote"
 						className={
-							(!validConfirmPassword &&
+							!validConfirmPassword &&
 								focusConfirmPassword &&
-								confirmPasswordDebounce)
+								confirmPasswordDebounce
 								? "instructions"
 								: "offscreen"
 						}
@@ -236,7 +231,7 @@ const SignUp = () => {
 						</span>
 						Must match the above password.
 					</p>
-					<input type="submit" value="Continue" />
+					<input type="submit" value="Continue" className="sign-input" />
 					<p className="mt-2">
 						<span>Already have an account? </span>
 						<NavLink to="/signin">sign in</NavLink>

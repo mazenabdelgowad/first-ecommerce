@@ -20,11 +20,12 @@ const NewsLetter = () => {
 					<h3>Sign Up For Newsletters</h3>
 					<p className="mt-2">Get E-mail updates about our latest shop and specails offers .</p>
 				</div>
-				<form action="" onSubmit={(e) => handleSubmit(e)} data-aos="fade-left">
+				<form action="" onSubmit={(e) => handleSubmit(e)} data-aos="fade-left" className="mt-sm-3">
 					<input
 						type="email"
 						name="user-email"
 						id="email"
+						autoComplete="on"
 						placeholder="Your Email Address"
 					/>
 					<input type="submit" value="Subscribe" />

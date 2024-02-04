@@ -1,8 +1,33 @@
+import { useEffect, useRef } from "react";
 import person1 from "../../assets/images/people/1.png";
 import person2 from "../../assets/images/people/2.png";
 import person3 from "../../assets/images/people/3.png";
 import "aos/dist/aos.css";
 const ContactForm = () => {
+	const userNameRef = useRef<HTMLInputElement | null>(null)
+	useEffect(() => {
+		const handleScroll = () => {
+			// Get the position of the username input relative to the viewport
+			const inputRect = userNameRef?.current?.getBoundingClientRect();
+
+			// Check if the top of the input is within the viewport
+			if (inputRect!.top >= 0 && inputRect!.bottom <= window.innerHeight) {
+				// Set focus on the username input
+				userNameRef?.current?.focus();
+
+				// Remove the scroll event listener once the input is in view
+				window.removeEventListener('scroll', handleScroll);
+			}
+		};
+
+		// Add scroll event listener to window
+		window.addEventListener('scroll', handleScroll);
+
+		// Clean up: remove scroll event listener when component unmounts
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, []);
 	return (
 		<section className="contact-page-form">
 			<div className="container">
@@ -10,15 +35,15 @@ const ContactForm = () => {
 					<div className="col-lg-8" data-aos="fade-right">
 						<h4 className="text-black-50 text-uppercase">leave a message</h4>
 						<h1 className="fw-bold my-2">We love to hear from you</h1>
-						<form className="d-flex flex-column justify-content-between align-items-start gap-2">
+						<form className="d-flex flex-column justify-content-between align-items-start gap-2" id="contact-form">
 							<input
 								type="text"
 								name="username"
+								ref={userNameRef}
 								placeholder="your name"
 								id="username"
 								autoComplete="off"
 								required
-								autoFocus={true}
 								data-aos="fade-up"
 							/>
 							<input
