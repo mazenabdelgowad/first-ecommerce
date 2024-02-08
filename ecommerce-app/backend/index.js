@@ -6,6 +6,9 @@ const url = process.env.MONGO_URL;
 const httpStatusText = require("./utils/httpStatusText");
 const productsRouter = require("./routes/products.route");
 const usersRouter = require("./routes/users.route");
+const authenticationRouter = require("./routes/authentication.route");
+const adminRouter = require("./routes/admin.route");
+
 const path = require("path");
 const cors = require("cors");
 const app = express();
@@ -13,6 +16,7 @@ const app = express();
 // To handle the Cross Origin Resource Sharing
 app.use(cors());
 
+// express.json() handle the body of the request and convert it to json format
 app.use(express.json());
 
 mongoose
@@ -24,6 +28,7 @@ mongoose
     console.error("Error connecting to MongoDB:", error.message);
   });
 
+// using the express static middleware to handle images
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Products router handler
@@ -31,6 +36,12 @@ app.use("/api/products", productsRouter);
 
 // Users router handler
 app.use("/api/users", usersRouter);
+
+// Login & Register router handler
+app.use("/api/users", authenticationRouter);
+
+// ADMIN route handler
+app.use("/api/admin", adminRouter);
 
 // NOT FOUND PAGES, NOT FOUND ROUTES
 app.all("*", (req, res, next) => {

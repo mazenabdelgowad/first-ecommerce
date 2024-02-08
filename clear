@@ -1,0 +1,53 @@
+[33mcommit 91aa69a32dbeab80e6c5b3acdfd3754113129dbd[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: mazen <mahmedabdelgowad@gmail.com>
+Date:   Thu Feb 8 11:12:57 2024 +0200
+
+    delete the frontend to be changed
+
+[33mcommit 1034f291b79e6c3b4c8fcea6da3f298e8de19ac9[m
+Author: mazen <mahmedabdelgowad@gmail.com>
+Date:   Thu Feb 8 10:42:28 2024 +0200
+
+    create 80% from the backend
+
+[33mcommit 05f6818a66a513fa1c5c9f69031781d23d8b040c[m
+Author: mazen <mahmedabdelgowad@gmail.com>
+Date:   Sun Feb 4 10:08:55 2024 +0200
+
+    complete the sign in page, single product page, and manging the cart count with redux toolkit
+
+[33mcommit f8c27c210698dde57ea066878bf51596b91faa18[m
+Author: mazen <mahmedabdelgowad@gmail.com>
+Date:   Sat Feb 3 14:43:43 2024 +0200
+
+    complete the sign up page and solve some responsive issues, and starting the sign in page
+
+[33mcommit 7e4c89d1ef1e13e0a7852243d8b7c4607df0f411[m
+Author: mazen <mahmedabdelgowad@gmail.com>
+Date:   Thu Feb 1 17:27:58 2024 +0200
+
+    complete the home page
+
+[33mcommit 2c3397778bb323d72943564a41e25022bb53d443[m
+Author: mazen <mahmedabdelgowad@gmail.com>
+Date:   Thu Feb 1 12:07:01 2024 +0200
+
+    features section, featured products section, call to action section, banneles section, news-letter still wants some css
+
+[33mcommit 8f40bfd53a4e5105660b288c631d5ea1eefa994c[m
+Author: mazen <mahmedabdelgowad@gmail.com>
+Date:   Wed Jan 31 23:22:47 2024 +0200
+
+    finish the hero section and navbar
+
+[33mcommit de42f5af348d0064027ef0cc2bc226ef6b4e3913[m
+Author: mazen <mahmedabdelgowad@gmail.com>
+Date:   Wed Jan 31 11:48:33 2024 +0200
+
+    some updtes, and we will stop for a while and then cameback
+
+[33mcommit d57ba440e54cdaebc604419c73c9f483decfc28b[m
+Author: mazen <mahmedabdelgowad@gmail.com>
+Date:   Wed Jan 31 09:16:11 2024 +0200
+
+    starting the development process

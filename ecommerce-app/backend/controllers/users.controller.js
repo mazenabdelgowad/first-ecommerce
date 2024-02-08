@@ -34,6 +34,10 @@ const getSingleUser = asyncWrapper(async (req, res, next) => {
   });
 });
 
+const updateUser = asyncWrapper(async (req, res, next) => {});
+
+const deleteUser = asyncWrapper(async (req, res, next) => {});
+
 const register = asyncWrapper(async (req, res, next) => {
   const { name, email, password, role } = req.body;
 
@@ -115,10 +119,6 @@ const login = asyncWrapper(async (req, res, next) => {
     return next(error);
   }
 });
-
-const updateUser = asyncWrapper(async (req, res, next) => {});
-
-const deleteUser = asyncWrapper(async (req, res, next) => {});
 
 module.exports = {
   getAllUsers,
